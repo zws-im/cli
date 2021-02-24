@@ -112,6 +112,8 @@ jobs:
         uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: '1.4.2'
+      - name: Install C build toolchain
+        run: sudo apt-get install mingw-w64 gcc-multilib
       - name: Deploy
         run: yarn run deploy
         env:

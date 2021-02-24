@@ -11,5 +11,5 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.ni{m,ms,mble}]
+[*.{{y,ya}ml,ni{m,ms,mble}}]
 indent_style = space
