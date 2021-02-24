@@ -78,6 +78,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           pull: true
+          load: true
           tags: zwsim/cli:latest
       - name: Start
         run: docker run zwsim/cli
