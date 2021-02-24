@@ -1,0 +1,13 @@
+{
+	"name": "@zws/cli",
+	"devDependencies": {
+		"@semantic-release/exec": "5.0.0",
+		"prettier": "2.2.1",
+		"prettier-config-xo": "1.0.3",
+		"semantic-release": "17.3.9",
+		"semantic-release-docker": "2.2.0"
+	},
+	"scripts": {
+		"style": "prettier --check ."
+	}
+}

@@ -1,0 +1,59 @@
+{
+	"branches": ["main"],
+	"plugins": [
+		[
+			"@semantic-release/commit-analyzer",
+			{
+				"preset": "angular"
+			}
+		],
+		"@semantic-release/release-notes-generator",
+		[
+			"@semantic-release/exec",
+			{
+				"prepareCmd": "docker pull zwsim/zws"
+			}
+		],
+		[
+			"@semantic-release/exec",
+			{
+				"prepareCmd": "nimble dist"
+			}
+		],
+		[
+			"@semantic-release/github",
+			{
+				"assets": [
+					{
+						"path": "zws-linux-amd64",
+						"label": "zws-linux-amd64"
+					},
+					{
+						"path": "zws-linux-i386",
+						"label": "zws-linux-i386"
+					},
+					{
+						"path": "zws-windows-amd64",
+						"label": "zws-windows-amd64"
+					},
+					{
+						"path": "zws-windows-i386",
+						"label": "zws-windows-i386"
+					}
+				]
+			}
+		],
+		[
+			"@semantic-release/exec",
+			{
+				"prepareCmd": "docker build -t zwsim/cli ."
+			}
+		],
+		[
+			"semantic-release-docker",
+			{
+				"name": "zwsim/cli"
+			}
+		]
+	]
+}

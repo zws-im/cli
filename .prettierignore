@@ -1,0 +1,9 @@
+node_modules
+
+# Yarn
+.yarn/*
+.pnp.*
+
+# Binaries
+zws
+zws-*-*
