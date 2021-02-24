@@ -33,11 +33,11 @@
 						"label": "zws-linux-i386"
 					},
 					{
-						"path": "zws-windows-amd64",
+						"path": "zws-windows-amd64.exe",
 						"label": "zws-windows-amd64"
 					},
 					{
-						"path": "zws-windows-i386",
+						"path": "zws-windows-i386.exe",
 						"label": "zws-windows-i386"
 					}
 				]
