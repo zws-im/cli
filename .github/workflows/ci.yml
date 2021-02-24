@@ -108,6 +108,10 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies with Yarn
         run: yarn install --immutable
+      - name: Setup Nim
+        uses: jiro4989/setup-nim-action@v1
+        with:
+          nim-version: '1.4.2'
       - name: Deploy
         run: yarn run deploy
         env:
