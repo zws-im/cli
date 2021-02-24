@@ -11,5 +11,6 @@
 		"style": "prettier --check .",
 		"deploy": "semantic-release"
 	},
+	"description": "A command line interface for ZWS instances",
 	"private": true
 }
