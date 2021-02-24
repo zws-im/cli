@@ -8,6 +8,7 @@
 		"semantic-release-docker": "2.2.0"
 	},
 	"scripts": {
-		"style": "prettier --check ."
+		"style": "prettier --check .",
+		"deploy": "semantic-release"
 	}
 }
