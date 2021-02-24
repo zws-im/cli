@@ -10,5 +10,6 @@
 	"scripts": {
 		"style": "prettier --check .",
 		"deploy": "semantic-release"
-	}
+	},
+	"private": true
 }
