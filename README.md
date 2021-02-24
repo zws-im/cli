@@ -43,4 +43,12 @@ baseUrl = "https://example.com"
 | --------- | -------------------------------------------- | ---------------- |
 | `baseUrl` | The URL shortened IDs should be appended to. | `https://zws.im` |
 
+## Docker
+
+An official Docker image is published [on Docker Hub as `zwsim/cli`](https://hub.docker.com/repository/docker/zwsim/cli/general).
+
+```sh
+docker run zwsim/cli [options] url
+```
+
 [zws]: https://github.com/zws-im/zws
