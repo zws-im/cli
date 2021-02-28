@@ -5,7 +5,9 @@ A command line interface for [ZWS][zws] instances.
 ## Usage
 
 ```sh
-zws [options] url
+zws [options] [url]
+zws [options] shorten [url]
+zws [options] stats [url]
 ```
 
 | Flags             | Description                   |
@@ -13,7 +15,37 @@ zws [options] url
 | `-h`, `--help`    | Print help and exit.          |
 | `-v`, `--version` | Print version and exit.       |
 | `--json`          | Output JSON.                  |
+| `--plain`         | Output without formatting.    |
 | `--no-input`      | Disable reading from `stdin`. |
+
+## Subcommands
+
+### `shorten` (default)
+
+Shortens the provided URL.
+
+```sh
+zws [options] [url]
+zws [options] shorten [url]
+```
+
+If no URL is provided and `--no-input` is not provided and the terminal is not a TTY it will be read from `stdin`.
+
+### `stats`
+
+View total statistics for the configured ZWS instance.
+
+```sh
+zws [options] stats
+```
+
+### `stats <url>`
+
+View usage statistics for a shortened URL.
+
+```sh
+zws [options] stats <url>
+```
 
 ## Config
 
@@ -39,9 +71,9 @@ baseUrl = "https://example.com"
 
 ### `Shortened`
 
-| Key       | Description                                  | Default          |
-| --------- | -------------------------------------------- | ---------------- |
-| `baseUrl` | The URL shortened IDs should be appended to. | `https://zws.im` |
+| Key       | Description                                  | Default                                                                           |
+| --------- | -------------------------------------------- | --------------------------------------------------------------------------------- |
+| `baseUrl` | The URL shortened IDs should be appended to. | `https://zws.im` if `Api.url` is set to default, otherwise the value of `Api.url` |
 
 ## Docker
 
