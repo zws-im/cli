@@ -14,4 +14,4 @@ WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/zws /usr/local/bin
 
 ENTRYPOINT ["zws"]
-CMD ["zws", "--help"]
+CMD ["-h"]
