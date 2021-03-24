@@ -25,7 +25,7 @@ proc writeHelp*(errorcode: int) =
 Usage:
   zws [options] <url>
   zws [options] shorten <url>
-  zws [options] stats  [url]
+  zws [options] stats [url]
 Subcommands:
   shorten (default) shorten the provided URL
   stats             return stats for the provided URL, or total stats if not provided
