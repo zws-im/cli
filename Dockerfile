@@ -7,7 +7,7 @@ COPY ./src ./src
 
 RUN nimble build -d:release
 
-FROM alpine:3.14.0
+FROM alpine:3.14.1
 
 WORKDIR /usr/src/app
 
