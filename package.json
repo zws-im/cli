@@ -12,5 +12,6 @@
 		"deploy": "semantic-release"
 	},
 	"description": "A command line interface for ZWS instances",
-	"private": true
+	"private": true,
+	"packageManager": "yarn@3.0.2"
 }
