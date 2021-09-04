@@ -32,14 +32,17 @@ block parser:
       break parser
 
 let args = optParser.remainingArgs()
-let shouldBeInteractive = not (stdin.isatty() or noInput)
+let shouldBeInteractive = (not noInput) and (not stdin.isatty())
 
 case firstArg
 of "stats":
   case args.len
   of 0:
-    # Use total stats
-    writeStats(outputKind)
+    if shouldBeInteractive:
+      readLineFromStdin("").writeStats(outputKind)
+    else:
+      # Use total stats
+      writeStats(outputKind)
   of 1:
     # Use provided URL stats
     args[0].writeStats(outputKind)
@@ -47,7 +50,6 @@ of "stats":
 of "shorten":
   case args.len
   of 0:
-    # Read from stdin if possible
     if shouldBeInteractive:
       readLineFromStdin("").writeShortenUrl(outputKind)
   of 1:
