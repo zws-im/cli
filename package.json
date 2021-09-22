@@ -7,7 +7,7 @@
 		"deploy": "semantic-release"
 	},
 	"devDependencies": {
-		"@semantic-release/exec": "5.0.0",
+		"@semantic-release/exec": "6.0.1",
 		"prettier": "2.4.1",
 		"prettier-config-xo": "2.0.0",
 		"semantic-release": "18.0.0",
