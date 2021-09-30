@@ -3,8 +3,8 @@
 	"private": true,
 	"description": "A command line interface for ZWS instances",
 	"scripts": {
-		"style": "prettier --check .",
-		"deploy": "semantic-release"
+		"deploy": "semantic-release",
+		"style": "prettier --check ."
 	},
 	"devDependencies": {
 		"@semantic-release/exec": "6.0.1",
