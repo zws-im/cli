@@ -6,10 +6,11 @@
 		"deploy": "semantic-release",
 		"style": "prettier --check ."
 	},
+	"prettier": "@jonahsnider/prettier-config",
 	"devDependencies": {
+		"@jonahsnider/prettier-config": "1.0.0",
 		"@semantic-release/exec": "6.0.1",
 		"prettier": "2.4.1",
-		"prettier-config-xo": "2.0.0",
 		"semantic-release": "18.0.0",
 		"semantic-release-docker": "2.2.0"
 	},
