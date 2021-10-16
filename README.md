@@ -75,12 +75,33 @@ baseUrl = "https://example.com"
 | --------- | -------------------------------------------- | --------------------------------------------------------------------------------- |
 | `baseUrl` | The URL shortened IDs should be appended to. | `https://zws.im` if `Api.url` is set to default, otherwise the value of `Api.url` |
 
-## Docker
+## Installation
+
+Nimble is the preferred way to install the CLI and is the best option for  regular use.
+
+Docker is easiest for testing but containers are slower compared to native host execution.
+
+### Nimble
+
+1. [Install Nim and Nimble](https://nim-lang.org/install.html)
+2. Install via Nimble
+
+   ```sh
+   nimble install zws
+   ```
+
+### Docker
 
 An official Docker image is published [on Docker Hub as `zwsim/cli`](https://hub.docker.com/repository/docker/zwsim/cli/general).
 
 ```sh
-docker run zwsim/cli [options] url
+docker run --rm zwsim/cli [options] url
 ```
+
+### Manual installation
+
+1. Download a binary from the [latest release](https://github.com/zws-im/cli/releases/latest)
+2. Add the binary to your `PATH`
+3. Windows users will also need to add [these DLLs](https://nim-lang.org/download/dlls.zip) to their `PATH`
 
 [zws]: https://github.com/zws-im/zws
