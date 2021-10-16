@@ -8,6 +8,7 @@ A command line interface for [ZWS][zws] instances.
 zws [options] [url]
 zws [options] shorten [url]
 zws [options] stats [url]
+zws [options] config
 ```
 
 | Flags             | Description                   |
@@ -47,6 +48,15 @@ View usage statistics for a shortened URL.
 zws [options] stats <url>
 ```
 
+### `config`
+
+Print the current configuration.
+You can view the config path and if it's being loaded with the `-h` or `--help` flag.
+
+```sh
+zws [options] config
+```
+
 ## Config
 
 The config is stored as `zws.ini` in [the config directory of the current user for applications](https://nim-lang.org/docs/os.html#getConfigDir) as [the Nim configuration file format](https://nim-lang.org/docs/parsecfg.html).
@@ -77,7 +87,7 @@ baseUrl = "https://example.com"
 
 ## Installation
 
-Nimble is the preferred way to install the CLI and is the best option for  regular use.
+Nimble is the preferred way to install the CLI and is the best option for regular use.
 
 Docker is easiest for testing but containers are slower compared to native host execution.
 

@@ -56,6 +56,8 @@ of "shorten":
     # Shorten provided URL
     args[0].writeShortenUrl(outputKind)
   else: discard
+of "config":
+  writeSerializedConfig(outputKind)
 of "":
   # No arguments were provided
   if shouldBeInteractive:

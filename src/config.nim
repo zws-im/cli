@@ -13,9 +13,11 @@ type ZwsConfig* = object
   api*: ZwsApiConfig
   shortened*: ZwsShortenedConfig
 
-let configPath = getConfigDir() / "zws.ini"
+let configPath* = getConfigDir() / "zws.ini"
 
-let userConfig: Config = if configPath.fileExists(): configPath.loadConfig() else: newConfig()
+let configExists* = configPath.fileExists()
+
+var userConfig*: Config = if configExists: configPath.loadConfig() else: newConfig()
 
 const defaultApiUrl = "https://api.zws.im"
 let apiUrl = userConfig.getSectionValue("Api", "url", defaultApiUrl)
