@@ -55,9 +55,9 @@ proc writeShortenUrl*(url: string, outputKind: OutputKind) =
       quit(shortened.url.get, QuitSuccess)
   except ApiException as exception:
     if outputKind == OutputJson:
-      quit($(%*exception.body))
+      quit($(%*exception.body), QuitFailure)
     else:
-      quit($exception.body)
+      quit($exception.body, QuitFailure)
   except:
     raise
 
@@ -94,8 +94,8 @@ proc writeStats*(url: string, outputKind: OutputKind) =
       quit($(%*urlStats), QuitSuccess)
   except ApiException as exception:
     if outputKind == OutputJson:
-      quit($(%*exception.body))
+      quit($(%*exception.body), QuitFailure)
     else:
-      quit($exception.body)
+      quit($exception.body, QuitFailure)
   except:
     raise
