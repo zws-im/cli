@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.2.1"
+version       = "1.2.2"
 author        = "Jonah Snider"
 description   = "A CLI to interact with ZWS"
 license       = "MIT"

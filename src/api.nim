@@ -32,7 +32,7 @@ type InstanceStats*[T: string or Natural] = object
 
 type UrlStats* = object
   url*: string
-  visits*: seq[string]
+  visits*: seq[int]
 
 proc totalStats*(format: static bool = false): InstanceStats[string] or
     InstanceStats[Natural] =
