@@ -80,7 +80,7 @@ proc shorten*(url: Uri): ShortenedUrl =
   let headers = newHttpHeaders({"Content-Type": "application/json"})
 
   if cfg.api.token != "":
-    headers["Authorization"] = cfg.api.token
+    headers["Authorization"] = &"Bearer {cfg.api.token}"
 
   let response = http.request($cfg.api.url, HttpPost, $(%*{"url": $url}), headers)
 
