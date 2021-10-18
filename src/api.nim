@@ -45,7 +45,7 @@ proc handleApiError(body: JsonNode): void =
   except ApiException:
     raise getCurrentException()
   except:
-    error("The response JSON was in an invalid format. Parsed body: ", body)
+    error("The response JSON was in an invalid format. Parsed body: ", body.pretty())
     raise getCurrentException()
 
 proc totalStats*(format: static bool = false): InstanceStats[string] or
