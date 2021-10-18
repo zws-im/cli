@@ -3,6 +3,7 @@ import options
 import uri
 import json
 import strformat
+import logging
 import ./config
 
 var http* = newHttpClient()
@@ -34,6 +35,19 @@ type UrlStats* = object
   url*: string
   visits*: seq[int]
 
+proc handleApiError(body: JsonNode): void =
+  try:
+    let apiError = body.to(ApiError)
+
+    var error = ApiException(body: apiError, msg: apiError.message)
+
+    raise error
+  except ApiException:
+    raise getCurrentException()
+  except:
+    error("The response JSON was in an invalid format. Parsed body: ", body)
+    raise getCurrentException()
+
 proc totalStats*(format: static bool = false): InstanceStats[string] or
     InstanceStats[Natural] =
   var route = cfg.api.url/"stats"
@@ -46,11 +60,7 @@ proc totalStats*(format: static bool = false): InstanceStats[string] or
   let body = response.body().parseJson()
 
   if response.status != $Http200:
-    let apiError = body.to(ApiError)
-
-    var error = ApiException(body: apiError, msg: apiError.message)
-
-    raise error
+    handleApiError(body)
   when format:
     result = body.to(InstanceStats[string])
   else:
@@ -68,11 +78,7 @@ proc stats*(shortenedUrl: Uri): UrlStats =
   let body = response.body().parseJson()
 
   if response.status != $Http200:
-    let apiError = body.to(ApiError)
-
-    var error = ApiException(body: apiError, msg: apiError.message)
-
-    raise error
+    handleApiError(body)
 
   result = body.to(UrlStats)
 
@@ -87,10 +93,6 @@ proc shorten*(url: Uri): ShortenedUrl =
   let body = response.body().parseJson()
 
   if response.status != $Http201:
-    let apiError = body.to(ApiError)
-
-    var error = ApiException(body: apiError, msg: apiError.message)
-
-    raise error
+    handleApiError(body)
 
   result = body.to(ShortenedUrl)
