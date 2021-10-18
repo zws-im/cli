@@ -81,9 +81,9 @@ baseUrl = "https://example.com"
 
 ### `Shortened`
 
-| Key       | Description                                  | Default                                                                           |
-| --------- | -------------------------------------------- | --------------------------------------------------------------------------------- |
-| `baseUrl` | The URL shortened IDs should be appended to. | `https://zws.im` if `Api.url` is set to default, otherwise the value of `Api.url` |
+| Key                  | Description                                                                                                           | Default                                                                           |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| DEPRECATED `baseUrl` | The URL shortened IDs should be appended to. You only need to set this if you can't set the base URL on the API side. | `https://zws.im` if `Api.url` is set to default, otherwise the value of `Api.url` |
 
 ## Installation
 

@@ -56,7 +56,7 @@ proc writeShortenUrl*(url: string, outputKind: OutputKind) =
 
     if shortened.url.isNone:
       if stdin.isatty:
-        warn("Usage of configuration option `Shortened.baseUrl` is deprecated")
+        warn("Usage of configuration option `Shortened.baseUrl` is deprecated, you should set the base URL environment variable on the API")
 
       shortened.url = some($(cfg.shortened.baseUrl/shortened.short))
 
