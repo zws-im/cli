@@ -24,10 +24,7 @@ proc normalizeUrl(url: string): Uri =
 
 
 let configExistsMessage = if configExists: "yes" else: "no"
-let tokenMessage = if cfg.api.token == "": "not set" else: "(secret)"
-
-proc writeHelp*(errorcode: int) =
-  quit(&"""
+let helpText = &"""
 Usage:
   zws [options] <url>
   zws [options] shorten <url>
@@ -45,10 +42,18 @@ Options:
   --no-input        disable reading from stdin
 Configuration:
   path              {configPath}
-  loaded            {configExistsMessage}""", errorcode)
+  loaded            {configExistsMessage}"""
+
+proc writeHelp*(errorcode: int) =
+  if errorcode == QuitSuccess:
+    echo helpText
+    quit(errorcode)
+  else:
+    quit(helpText, errorcode)
 
 proc writeVersion* =
-  quit(NimblePkgVersion, QuitSuccess)
+  echo NimblePkgVersion
+  quit(QuitSuccess)
 
 proc writeShortenUrl*(url: string, outputKind: OutputKind) =
   try:
@@ -61,9 +66,11 @@ proc writeShortenUrl*(url: string, outputKind: OutputKind) =
       shortened.url = some($(cfg.shortened.baseUrl/shortened.short))
 
     if outputKind == OutputJson:
-      quit($(%*shortened), QuitSuccess)
+      echo $(%*shortened)
     else:
-      quit(shortened.url.get, QuitSuccess)
+      echo shortened.url.get
+
+    quit(QuitSuccess)
   except ApiException as exception:
     if outputKind == OutputJson:
       quit($(%*exception.body), QuitFailure)
@@ -75,22 +82,24 @@ proc writeShortenUrl*(url: string, outputKind: OutputKind) =
 proc writeStats*(outputKind: OutputKind) =
   case outputKind
   of OutputFormatted:
-    let instanceStats = totalStats(true)
+    let instanceStats = totalStats(format)
 
-    quit(&"""
+    echo &"""
 URLs shortened: {instanceStats.urls}
 URLs visited: {instanceStats.visits}
-API version: {instanceStats.version}""", QuitSuccess)
+API version: {instanceStats.version}"""
   of OutputPlain:
     let instanceStats = totalStats()
 
-    quit(&"""
+    echo &"""
 URLs shortened: {instanceStats.urls}
 URLs visited: {instanceStats.visits}
-API version: {instanceStats.version}""", QuitSuccess)
+API version: {instanceStats.version}"""
   of OutputJson:
     let instanceStats = totalStats()
-    quit($(%*instanceStats), QuitSuccess)
+    echo $(%*instanceStats)
+
+  quit(QuitSuccess)
 
 proc writeStats*(url: string, outputKind: OutputKind) =
   try:
@@ -98,11 +107,13 @@ proc writeStats*(url: string, outputKind: OutputKind) =
 
     case outputKind
     of OutputPlain:
-      quit(&"Visits: {urlStats.visits.len}", QuitSuccess)
+      echo &"Visits: {urlStats.visits.len}"
     of OutputFormatted:
-      quit(&"Visits: {($urlStats.visits.len).insertSep(',')}", QuitSuccess)
+      echo &"Visits: {($urlStats.visits.len).insertSep(',')}"
     of OutputJson:
-      quit($(%*urlStats), QuitSuccess)
+      echo $(%*urlStats)
+
+    quit(QuitSuccess)
   except ApiException as exception:
     if outputKind == OutputJson:
       quit($(%*exception.body), QuitFailure)
@@ -128,6 +139,8 @@ proc writeSerializedConfig*(outputKind: OutputKind) =
   serializedCfgStrm.close()
 
   if (outputKind == OutputJson):
-    quit($(%*{"config": cfgSerialized}), QuitSuccess)
+    echo $(%*{"config": cfgSerialized})
   else:
-    quit(cfgSerialized, QuitSuccess)
+    echo cfgSerialized
+
+  quit(QuitSuccess)
