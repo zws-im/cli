@@ -82,7 +82,7 @@ proc writeShortenUrl*(url: string, outputKind: OutputKind) =
 proc writeStats*(outputKind: OutputKind) =
   case outputKind
   of OutputFormatted:
-    let instanceStats = totalStats(format)
+    let instanceStats = totalStats(format = true)
 
     echo &"""
 URLs shortened: {instanceStats.urls}
