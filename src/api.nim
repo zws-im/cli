@@ -35,6 +35,16 @@ type UrlStats* = object
   url*: string
   visits*: seq[int]
 
+proc tryParseJson(body: string): JsonNode =
+  try:
+    result = body.parseJson()
+  except ValueError:
+    error("The response was not valid JSON. Raw body: ", body)
+    raise
+
+proc printBadJson(body: JsonNode): void =
+  error("The response JSON was in an invalid format. Parsed body: ", body.pretty())
+
 proc handleApiError(body: JsonNode): void =
   try:
     let apiError = body.to(ApiError)
@@ -42,11 +52,9 @@ proc handleApiError(body: JsonNode): void =
     var error = ApiException(body: apiError, msg: apiError.message)
 
     raise error
-  except ApiException:
-    raise getCurrentException()
-  except:
-    error("The response JSON was in an invalid format. Parsed body: ", body.pretty())
-    raise getCurrentException()
+  except ValueError:
+    printBadJson(body)
+    raise
 
 proc totalStats*(format: static bool = false): InstanceStats[string] or
     InstanceStats[Natural] =
@@ -57,14 +65,19 @@ proc totalStats*(format: static bool = false): InstanceStats[string] or
 
   let response = http.get($route)
 
-  let body = response.body().parseJson()
+  let body = response.body().tryParseJson()
 
   if response.status != $Http200:
     handleApiError(body)
-  when format:
-    result = body.to(InstanceStats[string])
-  else:
-    result = body.to(InstanceStats[Natural])
+
+  try:
+    when format:
+      result = body.to(InstanceStats[string])
+    else:
+      result = body.to(InstanceStats[Natural])
+  except ValueError:
+    printBadJson(body)
+    raise
 
 let baseUrlLength = ($cfg.shortened.baseUrl).len
 
@@ -75,12 +88,16 @@ proc stats*(shortenedUrl: Uri): UrlStats =
 
   let response = http.get($route)
 
-  let body = response.body().parseJson()
+  let body = response.body().tryParseJson()
 
   if response.status != $Http200:
     handleApiError(body)
 
-  result = body.to(UrlStats)
+  try:
+    result = body.to(UrlStats)
+  except ValueError:
+    printBadJson(body)
+    raise
 
 proc shorten*(url: Uri): ShortenedUrl =
   let headers = newHttpHeaders({"Content-Type": "application/json"})
@@ -90,9 +107,13 @@ proc shorten*(url: Uri): ShortenedUrl =
 
   let response = http.request($cfg.api.url, HttpPost, $(%*{"url": $url}), headers)
 
-  let body = response.body().parseJson()
+  let body = response.body().tryParseJson()
 
   if response.status != $Http201:
     handleApiError(body)
 
-  result = body.to(ShortenedUrl)
+  try:
+    result = body.to(ShortenedUrl)
+  except ValueError:
+    printBadJson(body)
+    raise
