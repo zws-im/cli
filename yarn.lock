@@ -424,9 +424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/exec@npm:6.0.2":
-  version: 6.0.2
-  resolution: "@semantic-release/exec@npm:6.0.2"
+"@semantic-release/exec@npm:6.0.3":
+  version: 6.0.3
+  resolution: "@semantic-release/exec@npm:6.0.3"
   dependencies:
     "@semantic-release/error": ^3.0.0
     aggregate-error: ^3.0.0
@@ -436,7 +436,7 @@ __metadata:
     parse-json: ^5.0.0
   peerDependencies:
     semantic-release: ">=18.0.0"
-  checksum: 27b3bfe376af56a111ed26db9aeba52117959c55ef9c741788ccdc79d68b92305a0c9d9a1631a6107b467fb6f5fc8bd7b4091c9da68739b5ff1237b1cef7ad4f
+  checksum: c6ad2f02ff01a4709c4914f560d0343efea9afe993c733ff971da8bf89604a1460d87b26a1a2ace5992c5ace8e8d384cf314504e0c4b623fc8433e8e8d9e2fe0
   languageName: node
   linkType: hard
 
@@ -556,7 +556,7 @@ __metadata:
   resolution: "@zws/cli@workspace:."
   dependencies:
     "@jonahsnider/prettier-config": 1.1.0
-    "@semantic-release/exec": 6.0.2
+    "@semantic-release/exec": 6.0.3
     prettier: 2.5.1
     semantic-release: 18.0.1
     semantic-release-docker: 2.2.0
