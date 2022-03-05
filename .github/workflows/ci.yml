@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: nimble build
       - name: Upload binary
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: zws
           path: zws
