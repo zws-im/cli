@@ -11,7 +11,7 @@
 		"@jonahsnider/prettier-config": "1.1.2",
 		"@semantic-release/exec": "6.0.3",
 		"prettier": "3.1.0",
-		"semantic-release": "22.0.7",
+		"semantic-release": "22.0.8",
 		"semantic-release-docker": "2.2.0"
 	},
 	"packageManager": "yarn@3.7.0"
