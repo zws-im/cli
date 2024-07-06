@@ -12,7 +12,7 @@ jobs:
       - name: Checkout git repository
         uses: actions/checkout@v4
       - name: Setup Nim
-        uses: jiro4989/setup-nim-action@v1
+        uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: '1.4.2'
       - name: Build
@@ -99,7 +99,7 @@ jobs:
       - name: Install dependencies with Yarn
         run: yarn install --immutable
       - name: Setup Nim
-        uses: jiro4989/setup-nim-action@v1
+        uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: '1.4.2'
       - name: Install C build toolchain
