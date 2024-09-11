@@ -806,7 +806,7 @@ __metadata:
     "@jonahsnider/prettier-config": 1.1.2
     "@semantic-release/exec": 6.0.3
     prettier: 3.3.3
-    semantic-release: 24.1.0
+    semantic-release: 24.1.1
     semantic-release-docker: 2.2.0
   languageName: unknown
   linkType: soft
@@ -1977,6 +1977,15 @@ __metadata:
   dependencies:
     lru-cache: ^10.0.1
   checksum: 467cf908a56556417b18e86ae3b8dee03c2360ef1d51e61c4028fe87f6f309b6ff038589c94b5666af207da9d972d5107698906aabeb78aca134641962a5c6f8
+  languageName: node
+  linkType: hard
+
+"hosted-git-info@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "hosted-git-info@npm:8.0.0"
+  dependencies:
+    lru-cache: ^10.0.1
+  checksum: a60ef7309eca210710ccab5334bec1c288eea91b0c9774b1b5180404fe94eeb8f5a4703a0d9d81300df28fe8309ba645807af1d6f25346a763374753df320aa4
   languageName: node
   linkType: hard
 
@@ -3960,9 +3969,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:24.1.0":
-  version: 24.1.0
-  resolution: "semantic-release@npm:24.1.0"
+"semantic-release@npm:24.1.1":
+  version: 24.1.1
+  resolution: "semantic-release@npm:24.1.1"
   dependencies:
     "@semantic-release/commit-analyzer": ^13.0.0-beta.1
     "@semantic-release/error": ^4.0.0
@@ -3979,7 +3988,7 @@ __metadata:
     get-stream: ^6.0.0
     git-log-parser: ^1.2.0
     hook-std: ^3.0.0
-    hosted-git-info: ^7.0.0
+    hosted-git-info: ^8.0.0
     import-from-esm: ^1.3.1
     lodash-es: ^4.17.21
     marked: ^12.0.0
@@ -3995,7 +4004,7 @@ __metadata:
     yargs: ^17.5.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 777384491f582806c97c55508ab3291f798cee48b458450a400bb57288917ae36fcdd383fc826c3ad3138871a2c6e49737ecbfbfee27051becc846f9b46d63fa
+  checksum: f5e508ff01b176bf78f1c0ccb8fb03da44d193bdeb34cf154b3b30522cc5cc433576c35a67e375ea0e0d728879c7786c5b0699653e05750b0fe2d74c3a7d58e4
   languageName: node
   linkType: hard
 
