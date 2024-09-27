@@ -613,9 +613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:^10.0.0":
-  version: 10.0.6
-  resolution: "@semantic-release/github@npm:10.0.6"
+"@semantic-release/github@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@semantic-release/github@npm:11.0.0"
   dependencies:
     "@octokit/core": ^6.0.0
     "@octokit/plugin-paginate-rest": ^11.0.0
@@ -634,8 +634,8 @@ __metadata:
     p-filter: ^4.0.0
     url-join: ^5.0.0
   peerDependencies:
-    semantic-release: ">=20.1.0"
-  checksum: 06c1826af9f6f5db9d7bc6738ef4b01d8ac2e0e95d6dfe4983ab7951df1b58757451d574cc458852045e45b7c7a672726d3e9dbeedd86e85b5d813f85fc6ff23
+    semantic-release: ">=24.1.0"
+  checksum: 044718a41f9888dd621e89959bb5bad9db772aa317fdc003bbd1b7dad895082c584b3409a7fc8c00071229b272718d303a006e72c7782c5dfb54313515b0b1f4
   languageName: node
   linkType: hard
 
@@ -806,7 +806,7 @@ __metadata:
     "@jonahsnider/prettier-config": 1.1.2
     "@semantic-release/exec": 6.0.3
     prettier: 3.3.3
-    semantic-release: 24.1.1
+    semantic-release: 24.1.2
     semantic-release-docker: 2.2.0
   languageName: unknown
   linkType: soft
@@ -3969,13 +3969,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:24.1.1":
-  version: 24.1.1
-  resolution: "semantic-release@npm:24.1.1"
+"semantic-release@npm:24.1.2":
+  version: 24.1.2
+  resolution: "semantic-release@npm:24.1.2"
   dependencies:
     "@semantic-release/commit-analyzer": ^13.0.0-beta.1
     "@semantic-release/error": ^4.0.0
-    "@semantic-release/github": ^10.0.0
+    "@semantic-release/github": ^11.0.0
     "@semantic-release/npm": ^12.0.0
     "@semantic-release/release-notes-generator": ^14.0.0-beta.1
     aggregate-error: ^5.0.0
@@ -4004,7 +4004,7 @@ __metadata:
     yargs: ^17.5.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: f5e508ff01b176bf78f1c0ccb8fb03da44d193bdeb34cf154b3b30522cc5cc433576c35a67e375ea0e0d728879c7786c5b0699653e05750b0fe2d74c3a7d58e4
+  checksum: fdcbb162302d947a9bdeee0b7177882fd27ecb17c3a5307f461c80f48eeb8bbce981ac143df9c6f9e84cdacee18efc06e050a6f20e476d20f2d1e2bcc7a388ad
   languageName: node
   linkType: hard
 
