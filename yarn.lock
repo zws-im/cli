@@ -805,7 +805,7 @@ __metadata:
   dependencies:
     "@jonahsnider/prettier-config": 1.1.2
     "@semantic-release/exec": 6.0.3
-    prettier: 3.4.0
+    prettier: 3.4.1
     semantic-release: 24.2.0
     semantic-release-docker: 2.2.0
   languageName: unknown
@@ -3683,12 +3683,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.4.0":
-  version: 3.4.0
-  resolution: "prettier@npm:3.4.0"
+"prettier@npm:3.4.1":
+  version: 3.4.1
+  resolution: "prettier@npm:3.4.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 600896ad0250afbcb4be97b41a2d72b878729d85308cbb6a6a8e668de8c3795559e2731b3fbb7f1d9bb5c76161a4110fd6f898d20af739853923336e55cb609a
+  checksum: f83ae83e38ae38f42c0b174833f58f820ed6eb063abfc5aa6725e8f9c1d626b54b1cb9d595cace525f8d59de89e186285f6bbcb460dc644ea9d8a7823cc54aca
   languageName: node
   linkType: hard
 
