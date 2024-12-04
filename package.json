@@ -14,5 +14,5 @@
 		"semantic-release": "24.2.0",
 		"semantic-release-docker": "2.2.0"
 	},
-	"packageManager": "yarn@3.8.6"
+	"packageManager": "yarn@3.8.7"
 }
