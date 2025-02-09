@@ -806,7 +806,7 @@ __metadata:
     "@jonahsnider/prettier-config": 1.1.2
     "@semantic-release/exec": 6.0.3
     prettier: 3.5.0
-    semantic-release: 24.2.1
+    semantic-release: 24.2.2
     semantic-release-docker: 2.2.0
   languageName: unknown
   linkType: soft
@@ -3969,9 +3969,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:24.2.1":
-  version: 24.2.1
-  resolution: "semantic-release@npm:24.2.1"
+"semantic-release@npm:24.2.2":
+  version: 24.2.2
+  resolution: "semantic-release@npm:24.2.2"
   dependencies:
     "@semantic-release/commit-analyzer": ^13.0.0-beta.1
     "@semantic-release/error": ^4.0.0
@@ -4004,7 +4004,7 @@ __metadata:
     yargs: ^17.5.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 295e2a8ab99a35763fb3c9e1ccce9aa3bc1e071a60b1ff1864566422f8ac216264172b68a891215b7e14fa9401c5227b55e4cd2dad39ef66fe3d1bd9120c41d4
+  checksum: d422c02c421f1af5536ab890f06f78062db6475e572b8dc60f7585de88f6525a00156d1ee1ecfed9c6a1ed8e312b1626d01acc467e790b8614066d44690e8b15
   languageName: node
   linkType: hard
 
